@@ -1,11 +1,14 @@
-import logo from './logo.svg';
-import './App.css';
-import { MapContainer, TileLayer, useMap, Marker, Popup } from 'react-leaflet'
+import React from "react"
+import { MapContainer, TileLayer, Popup, Marker } from 'react-leaflet'
+//stylesheet
+import "./MainMapContainer.module.css"
 
 
-function App() {
+
+const MainMapContainer = () => {
+
   return (
-    <div id="map">
+<div id="map">
     <MapContainer center={[51.505, -0.09]} zoom={13} scrollWheelZoom={false}>
     <TileLayer
       attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
@@ -17,9 +20,8 @@ function App() {
       </Popup>
     </Marker>
   </MapContainer>
-  </div>
-  );
+</div>
+  )
 }
 
-
-export default App;
+export default MainMapContainer
