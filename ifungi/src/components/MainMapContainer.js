@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react"
 import { MapContainer, TileLayer, Popup, Marker } from 'react-leaflet'
 import Mushroom, {Color, Spots } from "../front-end api.ts"
+import Markers from "./Markers"
 
 
 
@@ -15,10 +16,6 @@ useEffect(() => {
     try {
       const mushrooms = await Mushroom()
       setMushrooms(mushrooms)
-      const highestLat = Math.max(...mushrooms.map((mushroom) => mushroom.latlng[0]))
-      const highestLng = Math.max(...mushrooms.map((mushroom) => mushroom.latlng[1]))
-      setLat(highestLat)
-      setLng(highestLng)
     } catch(error) {
       console.log("Something went wrong")
     }
@@ -51,11 +48,7 @@ console.log(lat, lng)
       attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
       url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
     />
-    <Marker position={[51.505, -0.09]}>
-      <Popup>
-        A pretty CSS3 popup. <br /> Easily customizable.
-      </Popup>
-    </Marker>
+    <Markers mushrooms={mushrooms} />
   </MapContainer>
 </div>
   )
