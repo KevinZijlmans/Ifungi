@@ -43,7 +43,7 @@ console.log(lat, lng)
 // getLatLng(mushrooms);
   return (
 <div id="map">
-    <MapContainer center={[52.082042, 5.237424]} zoom={13} scrollWheelZoom={false}>
+    <MapContainer center={[52.082042, 5.237424]} zoom={22} scrollWheelZoom={false}>
     <TileLayer
       attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
       url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
