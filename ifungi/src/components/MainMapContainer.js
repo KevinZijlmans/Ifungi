@@ -143,7 +143,7 @@ useEffect(() => {
       setSelectedSpots={setSelectedSpots}
       setFilteredMushrooms={setFilteredMushrooms}
      />
-    <MapContainer center={[52.082042, 5.237424]} zoom={22} scrollWheelZoom={false}>
+    <MapContainer center={[52.081042, 5.236224]} zoom={22} scrollWheelZoom={false}>
     <TileLayer
       attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
       url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"

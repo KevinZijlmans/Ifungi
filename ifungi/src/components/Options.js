@@ -37,45 +37,51 @@ const handleColorChange = (event) => {
   };
     return (
         <div className="filter-container">
-        <div>Filter by Color:</div>
-        <div>
-            <select
-                name="color-list"
-                id="color-list"
-                onChange={handleColorChange}
-            >
-                <option disabled selected value="-- select an option --"> -- select an option -- </option>
-               {ColorOptions}
-            </select>
-            <Button 
-                variant="text"
-                onClick={() => {
-                    handleReset("color-list");
-                  }}
-                >
-                Reset Color
-            </Button>
-        </div>
-        <div>Filter by Spots:</div>
-        <div>
-            <select
-                name="spots-list"
-                id="spots-list"
-                onChange={handleSpotsChange}
-            >
-                  <option disabled selected value="-- select an option --"> -- select an option -- </option>
-               {SpotsOptions}
-            </select>
-            <Button 
-                variant="text"
-                onClick={() => {
-                    handleReset("spots-list");
-                  }}
-                >
-                Reset Color
-            </Button>
-        </div>
-        </div>
+            <div class="select-container">
+                <div class="select-title">Filter by Color</div>
+                    <div class="select-wrapper">
+                        <select
+                            name="color-list"
+                            id="color-list"
+                            onChange={handleColorChange}
+                        >
+                            <option disabled selected value="-- select an option --"> -- select an option -- </option>
+                        {ColorOptions}
+                        </select>
+                        <Button 
+                            variant="text"
+                            onClick={() => {
+                                handleReset("color-list");
+                            }}
+                            >
+                            Reset Color
+                        </Button>
+                    </div>
+                </div>
+                <div class="select-container">
+                    <div class="select-title">
+                        Filter by Spots
+                    </div>
+                    <div class="select-wrapper">
+                        <select
+                            name="spots-list"
+                            id="spots-list"
+                            onChange={handleSpotsChange}
+                        >
+                            <option disabled selected value="-- select an option --"> -- select an option -- </option>
+                        {SpotsOptions}
+                        </select>
+                        <Button 
+                            variant="text"
+                            onClick={() => {
+                                handleReset("spots-list");
+                            }}
+                            >
+                            Reset Color
+                        </Button>
+                    </div>
+                </div>
+            </div>
     );
   }
 
