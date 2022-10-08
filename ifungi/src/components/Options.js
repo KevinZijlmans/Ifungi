@@ -1,50 +1,58 @@
-import React, { useState, useEffect } from "react"
-import Button from '@mui/material/Button'
-import Select from '@mui/material/Select'
-import {Color, Spots} from  '../front-end api.ts'
-
+import React from "react"
   
   const Options = props => {
-    const [form, setForm] = useState({
-      color: [],
-      spots: "",
-    });
-    // const [colors, setColors] = useState([])
-
-    // useEffect(() => {
-    //     const getColors = async () => {
-    //       try {
-    //         const colors = await Color()
-    //         setColors(colors)
-    //       } catch(error) {
-    //         console.log("Something went wrong")
-    //       }
-    //     };
-    //     getColors();
-    // }, []);
-
+    function filterDuplicate(arr) {
+        return arr.filter((elem, index, array) => array.indexOf(elem) === index);
+      }
+    // Filter the colors
+    const FilteredColors = filterDuplicate(props.mushrooms.map((data) => {
+        return  data.color  
+    }))
+    const ColorOptions = FilteredColors.map((color) => {
+        return <option value={color}>{color}</option>
+    })
+    // Filter the Spots
+    const FilteredSpots = filterDuplicate(props.mushrooms.map((data) => {
+        return data.spots   
+    }))
+    const SpotsOptions = FilteredSpots.map((spots) => {
+        return <option value={spots}>{spots}</option>
+    })  
+    // Update seletedColor state
+const handleColorChange = (event) => { 
+    props.setSelectedColor(event.target.value);
+  };
   
-    // const color = Color.map((data) => {
-    //     console.log(data)       
-    // })
-    // const colors = Color.entries(Color)
-    const spots = Spots
-    console.log(Color);
-    function handleSubmit(e) {
-      e.preventDefault();
-      console.log(form);
-    }
+  // Toggle seletedSpots state
+  const handleSpotsChange = (event) => {
+    props.setSelectedSpots(event.target.value);
   
+  }; 
     return (
-        <form onSubmit={handleSubmit} className="options">
-          <Select 
-            type="Color" 
-            label="Color"  />
-          {/* <Select  type="Spots" options={"spots"} /> */}
-          <Button variant="contained" type="submit">
-            RESET
-          </Button>
-        </form>
+        <div className="filter-container">
+        <div>Filter by Color:</div>
+        <div>
+            <select
+                name="color-list"
+                id="color-list"
+                onChange={handleColorChange}
+            >
+                <option disabled selected value> -- select an option -- </option>
+               {ColorOptions}
+            </select>
+        </div>
+        <div>Filter by Spots:</div>
+        <div>
+            <select
+                name="spots-list"
+                id="spots-list"
+                onChange={handleSpotsChange}
+            >
+                  <option disabled selected value> -- select an option -- </option>
+               {SpotsOptions}
+            </select>
+        </div>
+        </div>
     );
   }
 

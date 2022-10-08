@@ -5,7 +5,7 @@ import iconMushroom from './Icon'
 const Markers = props => {
 
   return (
-    props.mushrooms.map((mushroom) => {
+    props.filteredMushrooms.map((mushroom) => {
         return (
         <Marker 
             position={[mushroom.latlng[0], mushroom.latlng[1]]} 
