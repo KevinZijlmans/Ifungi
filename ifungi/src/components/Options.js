@@ -1,4 +1,5 @@
 import React from "react"
+import Button from '@mui/material/Button';
   
   const Options = props => {
     function filterDuplicate(arr) {
@@ -27,7 +28,13 @@ const handleColorChange = (event) => {
   const handleSpotsChange = (event) => {
     props.setSelectedSpots(event.target.value);
   
-  }; 
+  };
+  
+  const handleReset = (selectid) => {
+    props.setFilteredMushrooms(props.mushrooms);
+    document.getElementById(selectid).value="-- select an option --";
+
+  };
     return (
         <div className="filter-container">
         <div>Filter by Color:</div>
@@ -37,9 +44,17 @@ const handleColorChange = (event) => {
                 id="color-list"
                 onChange={handleColorChange}
             >
-                <option disabled selected value> -- select an option -- </option>
+                <option disabled selected value="-- select an option --"> -- select an option -- </option>
                {ColorOptions}
             </select>
+            <Button 
+                variant="text"
+                onClick={() => {
+                    handleReset("color-list");
+                  }}
+                >
+                Reset Color
+            </Button>
         </div>
         <div>Filter by Spots:</div>
         <div>
@@ -48,9 +63,17 @@ const handleColorChange = (event) => {
                 id="spots-list"
                 onChange={handleSpotsChange}
             >
-                  <option disabled selected value> -- select an option -- </option>
+                  <option disabled selected value="-- select an option --"> -- select an option -- </option>
                {SpotsOptions}
             </select>
+            <Button 
+                variant="text"
+                onClick={() => {
+                    handleReset("spots-list");
+                  }}
+                >
+                Reset Color
+            </Button>
         </div>
         </div>
     );
