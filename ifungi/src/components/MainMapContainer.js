@@ -115,25 +115,12 @@ useEffect(() => {
 }, 
 [selectedColor, selectedSpots]);
 
-// useEffect(() => {
-//   const highestLat = Math.max(...mushrooms.map((mushroom) => mushroom.latlng[0]))
-//   const highestLng = Math.max(...mushrooms.map((mushroom) => mushroom.latlng[1]))
-//   setLat(highestLat)
-//   setLng(highestLng)
-// }, []);
-
-// console.log(lat, lng)
-
-// function getLatLng(mushrooms) {
-//   const lats = mushrooms.map((mushroom) => mushroom.latlng[0])
-//   const lngs = mushrooms.map((mushroom) => mushroom.latlng[1])
-//   const highestLat = Math.max(...lats.map((lat) => lat))
-//   const highestLng = Math.max(...lngs.map((lng) => lng))
-//   return highestLat, highestLng
-// }
-// getLatLng(mushrooms);
   return (
 <div id="map">
+  <div className="header">
+    <article>
+      <h1 className="header-title">Ifungi</h1>
+    </article>
     <Options  
       mushrooms={mushrooms}
       filteredMushrooms={filteredMushrooms} 
@@ -142,7 +129,10 @@ useEffect(() => {
       setSelectedColor={setSelectedColor}
       setSelectedSpots={setSelectedSpots}
       setFilteredMushrooms={setFilteredMushrooms}
+      filterBySpots={filterBySpots}
+      filterByColor={filterByColor}
      />
+  </div>
     <MapContainer center={[52.081042, 5.236224]} zoom={22} scrollWheelZoom={false}>
     <TileLayer
       attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'

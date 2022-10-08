@@ -33,13 +33,26 @@ const handleColorChange = (event) => {
   const handleReset = (selectid) => {
     props.setFilteredMushrooms(props.mushrooms);
     document.getElementById(selectid).value="-- select an option --";
+    if(selectid==="spots-list"){
+        props.setSelectedSpots("");
+    } if(selectid==="color-list"){
+        props.setSelectedColor("");
+    }
+
+    var filteredData = props.filterByColor(props.mushrooms);
+    filteredData = props.filterBySpots(filteredData);
+    props.setFilteredMushrooms(filteredData);
 
   };
     return (
         <div className="filter-container">
-            <div class="select-container">
-                <div class="select-title">Filter by Color</div>
-                    <div class="select-wrapper">
+            <div className="select-container">
+                <article>
+                    <div className="select-title">
+                        Filter by Color
+                    </div>
+                </article>
+                    <div className="select-wrapper">
                         <select
                             name="color-list"
                             id="color-list"
@@ -56,13 +69,16 @@ const handleColorChange = (event) => {
                             >
                             Reset Color
                         </Button>
+
                     </div>
                 </div>
-                <div class="select-container">
-                    <div class="select-title">
-                        Filter by Spots
-                    </div>
-                    <div class="select-wrapper">
+                <div className="select-container">
+                    <article>
+                        <div className="select-title">
+                            Filter by Spots
+                        </div>
+                    </article>
+                    <div className="select-wrapper">
                         <select
                             name="spots-list"
                             id="spots-list"
@@ -77,7 +93,7 @@ const handleColorChange = (event) => {
                                 handleReset("spots-list");
                             }}
                             >
-                            Reset Color
+                            Reset Spots
                         </Button>
                     </div>
                 </div>
