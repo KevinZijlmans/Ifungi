@@ -41,19 +41,6 @@ code {
   margin: 5px;
 }
 
-.select-wrapper:after {
-    content: '\f078';
-    font: normal normal normal 17px/1 FontAwesome;
-    color: #0ebeff;
-    right: 11px;
-    top: 6px;
-    height: 34px;
-    padding: 15px 0px 0px 8px;
-    border-left: 1px solid #0ebeff;
-    position: absolute;
-    pointer-events: none;
-}
-
 /* IE11 hide native button (thanks Matt!) */
 select::-ms-expand {
 display: none;
