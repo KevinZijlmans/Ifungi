@@ -1,9 +1,9 @@
 # Ifungi
 
 
-Have you ever wanted to know which mushrooms grow in the gardens of Zeist? You have come to the right place. This little app will not only show you where all the mushrooms are but also where to find specific ones based on colors or spots!
+Have you ever wanted to know which mushrooms grow in the gardens of Zeist? You have come to the right place. This app will not only show you where all the mushrooms are but also where to find specific ones based on colors or spots!
 
-I created this app in React.js cause I really like the framework and want to learn more about the ins and outs of React and push it to the limits of what it can do.
+I created this app in React.js because I really like the framework and want to learn more about the ins and outs of React and push it to the limits of what it can do.
 
 In the future we are looking to add specific images to each of the mushrooms and ofcourse connect it to the mushroom database of the world so this app can go worldwide!
 
@@ -20,7 +20,7 @@ You may also see any lint errors in the console.
 
 ## How to use
 
-After you have downloaded and installed the app you can immediately use it! You can look at the map and click on the mushrooms to see their specs!
+After you have downloaded and installed the app you can immediately use it! You can look at the map and click on the mushrooms to see their specifications!
 You only like red mushrooms? No worries just choose the color you like in the color filter, and you will not be able to see any of those pesky colors that you don't like! Made a mistake? You do like all colors? No problem! just press the reset button under the filter and all the happy colors will return! For spots it's the same story. just replace color with spots!
 
 Now you can go out there and find your favorite mushrooms in Zeist, and soon maybe the world!
