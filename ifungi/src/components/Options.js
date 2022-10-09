@@ -11,14 +11,14 @@ import { v4 as uuidv4 } from "uuid"
         return arr.filter((elem, index, array) => array.indexOf(elem) === index);
       }
     // Filter the colors
-    const FilteredColors = filterDuplicate(props.mushrooms.map((data) => {
+    const FilteredColors = filterDuplicate(props.filteredMushrooms.map((data) => {
         return  data.color  
     }))
     const ColorOptions = FilteredColors.map((color) => {
         return <option key={uuidv4()} value={color}>{color}</option>
     })
     // Filter the Spots
-    const FilteredSpots = filterDuplicate(props.mushrooms.map((data) => {
+    const FilteredSpots = filterDuplicate(props.filteredMushrooms.map((data) => {
         return data.spots   
     }))
     const SpotsOptions = FilteredSpots.map((spots) => {
@@ -47,7 +47,7 @@ import { v4 as uuidv4 } from "uuid"
         setDisabledColor(false);
     }
 
-    var filteredData = props.filterByColor(props.mushrooms);
+    var filteredData = props.filterByColor(props.filteredMushrooms);
     filteredData = props.filterBySpots(filteredData);
     props.setFilteredMushrooms(filteredData);
 
