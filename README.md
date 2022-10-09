@@ -12,6 +12,8 @@ In the future we are looking to add specific images to each of the mushrooms and
 Either download or pull the project to your own computer,
 
 In the project directory, you can run:
+### `npm install`
+and then:
 ### `npm start`
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
