@@ -9,7 +9,7 @@ body {
 
 .leaflet-container {
   width: 100%;
-  height: 90vh;
+  height: 66vh;
   z-index: 1;
 }
 
@@ -28,17 +28,9 @@ body {
 }
 
 .select-wrapper {
-  position: relative;
-  /*Don't really need this just for demo styling*/
-  
   float: left;
   min-width: 200px;
   margin: 5px;
-}
-
-/* IE11 hide native button (thanks Matt!) */
-select::-ms-expand {
-display: none;
 }
 
 .select-wrapper select {
@@ -62,9 +54,6 @@ display: none;
   border: 1px solid #0ebeff;
   -ms-word-break: normal;
   word-break: normal;
-}
-.select-wrapper select option {
-  padding: 30px;
 }
 .select-wrapper{
   display: flex;
@@ -99,7 +88,7 @@ h1, p, body {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  padding:50px;
+  padding:10px;
 }
 
 button{
