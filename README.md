@@ -24,3 +24,7 @@ After you have downloaded and installed the app you can immediately use it! You 
 You only like red mushrooms? No worries just choose the color you like in the color filter, and you will not be able to see any of those pesky colors that you don't like! Made a mistake? You do like all colors? No problem! just press the reset button under the filter and all the happy colors will return! For spots it's the same story. just replace color with spots!
 
 Now you can go out there and find your favorite mushrooms in Zeist, and soon maybe the world!
+
+### Questions
+
+If you need help or have feature request, please send me a message.
