@@ -1,6 +1,7 @@
 import React from "react"
 import { Marker, Popup } from 'react-leaflet'
 import iconMushroom from './Icon'
+import { v4 as uuidv4 } from "uuid"
 
 const Markers = props => {
 
@@ -8,6 +9,7 @@ const Markers = props => {
     props.filteredMushrooms.map((mushroom) => {
         return (
         <Marker 
+            key={uuidv4()}
             position={[mushroom.latlng[0], mushroom.latlng[1]]} 
             icon={iconMushroom} 
             >

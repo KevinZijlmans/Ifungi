@@ -1,7 +1,12 @@
-import React from "react"
+import React, { useState } from "react"
 import Button from '@mui/material/Button';
+import { v4 as uuidv4 } from "uuid"
   
   const Options = props => {
+    const [disabledColor, setDisabledColor] = useState(false)
+    const [disabledSpots, setDisabledSpots] = useState(false)
+
+
     function filterDuplicate(arr) {
         return arr.filter((elem, index, array) => array.indexOf(elem) === index);
       }
@@ -10,40 +15,43 @@ import Button from '@mui/material/Button';
         return  data.color  
     }))
     const ColorOptions = FilteredColors.map((color) => {
-        return <option value={color}>{color}</option>
+        return <option key={uuidv4()} value={color}>{color}</option>
     })
     // Filter the Spots
     const FilteredSpots = filterDuplicate(props.mushrooms.map((data) => {
         return data.spots   
     }))
     const SpotsOptions = FilteredSpots.map((spots) => {
-        return <option value={spots}>{spots}</option>
+        return <option key={uuidv4()} value={spots}>{spots}</option>
     })  
-    // Update seletedColor state
-const handleColorChange = (event) => { 
-    props.setSelectedColor(event.target.value);
-  };
+    // Update selectedColor state
+    const handleColorChange = (event) => { 
+        props.setSelectedColor(event.target.value);
+        setDisabledColor(true);
+    };
   
-  // Toggle seletedSpots state
-  const handleSpotsChange = (event) => {
-    props.setSelectedSpots(event.target.value);
+    // Toggle seletedSpots state
+    const handleSpotsChange = (event) => {
+        props.setSelectedSpots(event.target.value);
+        setDisabledSpots(true);
+    };
   
-  };
-  
-  const handleReset = (selectid) => {
-    props.setFilteredMushrooms(props.mushrooms);
-    document.getElementById(selectid).value="-- select an option --";
-    if(selectid==="spots-list"){
+    const handleReset = (selectid) => {
+        props.setFilteredMushrooms(props.mushrooms);
+        document.getElementById(selectid).value="-- select an option --";
+        if(selectid==="spots-list"){
         props.setSelectedSpots("");
-    } if(selectid==="color-list"){
+        setDisabledSpots(false);
+        } if(selectid==="color-list"){
         props.setSelectedColor("");
+        setDisabledColor(false);
     }
 
     var filteredData = props.filterByColor(props.mushrooms);
     filteredData = props.filterBySpots(filteredData);
     props.setFilteredMushrooms(filteredData);
 
-  };
+    };
     return (
         <div className="filter-container">
             <div className="select-container">
@@ -58,10 +66,17 @@ const handleColorChange = (event) => {
                             id="color-list"
                             onChange={handleColorChange}
                         >
-                            <option disabled selected value="-- select an option --"> -- select an option -- </option>
+                            <option 
+                                key={uuidv4()}
+                                disabled={disabledColor} 
+                                value="default"
+                            > 
+                                -- select an option -- 
+                            </option>
+
                         {ColorOptions}
                         </select>
-                        <Button 
+                        <Button
                             variant="text"
                             onClick={() => {
                                 handleReset("color-list");
@@ -83,8 +98,16 @@ const handleColorChange = (event) => {
                             name="spots-list"
                             id="spots-list"
                             onChange={handleSpotsChange}
+                            defaultValue={'default'}
                         >
-                            <option disabled selected value="-- select an option --"> -- select an option -- </option>
+                            <option 
+                                key={uuidv4()}
+                                disabled={disabledSpots} 
+                                value="default"
+                                id="default-spots-option" 
+                            >
+                            -- select an option -- 
+                            </option>
                         {SpotsOptions}
                         </select>
                         <Button 

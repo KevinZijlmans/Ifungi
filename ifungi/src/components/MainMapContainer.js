@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useMemo } from "react"
 import { MapContainer, TileLayer, Popup, Marker } from 'react-leaflet'
-import Mushroom, {Color, Spots } from "../front-end api.ts"
+import Mushroom from "../front-end api.ts"
 import Markers from "./Markers"
 import Options from "./Options"
 
@@ -12,8 +12,6 @@ const [mushrooms, setMushrooms] = useState([])
 const [filteredMushrooms, setFilteredMushrooms] = useState([])
 const [selectedColor, setSelectedColor] = useState("");
 const [selectedSpots, setSelectedSpots] = useState("");
-// const [lat, setLat] = useState(0)
-// const [lng, setLng] = useState(0)
 
 useEffect(() => {
   const getMushrooms = async () => {
@@ -86,7 +84,6 @@ useEffect(() => {
 
 // Filtering functions
 const filterByColor = (filteredData) => {
-  // Avoid filter for empty string
   if (!selectedColor) {
     return filteredData;
   }
@@ -97,7 +94,6 @@ const filterByColor = (filteredData) => {
   return filteredMushrooms;
 };
 const filterBySpots = (filteredData) => {
-  // Avoid filter for null value
   if (!selectedSpots) {
     return filteredData;
   }  
